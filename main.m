@@ -21,6 +21,13 @@ imagesc(pm25(:,:,1))
 
 figure; clf
 plot(pm25time, pm25mean)
+
+fairlat= 64
+fairlon= -147
+
+[~,indlat] = min(abs(pm25data.Latitude - fairlat)) 
+[~,indlon] = min(abs(pm25data.Longitude - fairlong)) 
+
 %% NO2 Data
 
 no2data = readtable('daily_42602_2012.csv');
