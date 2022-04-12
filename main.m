@@ -3,7 +3,7 @@ pm25data = readtable('daily_88101_2012.csv');
 longrid = unique(pm25data.Longitude);
 latgrid = unique(pm25data.Latitude);
 dategrid= unique(pm25data.DateLocal);
-
+cd 
 pm25mean=pm25data.ArithmeticMean;
 pm25time= pm25data.DateLocal;
 
