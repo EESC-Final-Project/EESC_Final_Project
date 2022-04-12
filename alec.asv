@@ -13,4 +13,9 @@ pm25_durham_2012 = pm25data_2012(pm25data_2012.CityName == "Durham",:);
 pm25_durham_2018 = pm25data_2018(pm25data_2018.CityName == "Durham",:);
 
 
-% step 2:
+% step 2: run some significance tests 
+% run a significance test for the mean of pm2.5 data across both locations
+% in 2012 
+
+mean_pm25_2012 = [pm25_durham_2012.ArithmeticMean pm25_fairbanks_2012.ArithmeticMean];
+normplot(me)
