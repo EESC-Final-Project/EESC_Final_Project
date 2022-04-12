@@ -13,4 +13,4 @@ pm25_durham_2012 = pm25data_2012(pm25data_2012.CityName == "Durham",:);
 pm25_durham_2018 = pm25data_2018(pm25data_2018.CityName == "Durham",:);
 
 
-% step 2: 
+% step 2:
