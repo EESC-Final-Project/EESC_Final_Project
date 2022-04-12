@@ -20,7 +20,7 @@ smooth_RH_F_2013 = movmean(F_2013_DailyRH(ind),30);
 scatter (time(ind),F_2013_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_F_2013,'-');
-title ('Relative Daily Humidity at Fairbanks in 2013')
+title ('Relative Daily Humidity at Fairbanks in 2013 (%)')
 xlabel('DOY')
 ylabel ('Daily Humidity')
 
@@ -34,7 +34,7 @@ smooth_RH_F_2018 = movmean(F_2018_DailyRH(ind),30);
 scatter (time(ind),F_2018_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_F_2018,'-');
-title ('Relative Daily Humidity at Fairbanks in 2018')
+title ('Relative Daily Humidity at Fairbanks in 2018 (%)')
 xlabel('DOY')
 ylabel ('Daily Humidity')
 
@@ -52,7 +52,7 @@ smooth_RH_D_2013 = movmean(D_2013_DailyRH(ind),30);
 scatter (time(ind),D_2013_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_D_2013,'-');
-title ('Relative Daily Humidity at Durham in 2013')
+title ('Relative Daily Humidity at Durham in 2013 (%)')
 xlabel('DOY')
 ylabel ('Daily Humidity')
 hold off 
@@ -66,7 +66,7 @@ smooth_RH_D_2018 = movmean(D_2018_DailyRH(ind),30);
 scatter (time(ind),D_2018_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_D_2018,'-');
-title ('Relative Daily Humidity at Durham in 2018')
+title ('Relative Daily Humidity at Durham in 2018 (%)')
 xlabel('DOY')
 ylabel ('Daily Humidity')
 hold off 
