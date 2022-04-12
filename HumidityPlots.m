@@ -17,9 +17,11 @@ ind=find(F_2013_DailyRH >= -9998);
 time = (1:365);
 figure (1)
 smooth_RH_F_2013 = movmean(F_2013_DailyRH(ind),30);
+RH_F_std_2013 = std(smooth_RH_F_2013);
 scatter (time(ind),F_2013_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_F_2013,'-');
+%errorbar(time(ind),smooth_RH_F_2013,RH_F_std_2013);
 title ('Relative Daily Humidity at Fairbanks in 2013 (%)')
 xlabel('DOY')
 ylabel ('Daily Humidity')
@@ -31,6 +33,7 @@ ind=find(F_2018_DailyRH >= -9998);
 time = (1:365);
 figure (2)
 smooth_RH_F_2018 = movmean(F_2018_DailyRH(ind),30);
+RH_F_std_2018 = std(smooth_RH_F_2018);
 scatter (time(ind),F_2018_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_F_2018,'-');
@@ -49,6 +52,7 @@ ind=find(D_2013_DailyRH >= -9998);
 time = (1:365);
 figure (3)
 smooth_RH_D_2013 = movmean(D_2013_DailyRH(ind),30);
+RH_D_std_2013 = std(smooth_RH_D_2013);
 scatter (time(ind),D_2013_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_D_2013,'-');
@@ -63,6 +67,7 @@ ind=find(D_2018_DailyRH >= -9998);
 time = (1:365);
 figure (4)
 smooth_RH_D_2018 = movmean(D_2018_DailyRH(ind),30);
+RH_D_std_2018 = std(smooth_RH_D_2018);
 scatter (time(ind),D_2018_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_D_2018,'-');
