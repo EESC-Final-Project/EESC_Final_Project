@@ -25,7 +25,7 @@ title('Daily Mean Value of PM 2.5 in 2012')
 colorbar
 caxis ([0 30])
 %large outlier in Alaska
-%us cmocean to change colors
+%us cmocean to change color 
 
 figure(2); clf
 worldmap('World')
@@ -35,14 +35,4 @@ scatterm(pm{1, 12}.lat,pm{1, 12}.lon,50,pm{1, 12}.max,'filled')
 title('Daily Max Value of PM 2.5 in 2012')
 colorbar
 caxis ([0 30])
-
-figure(3); clf
-worldmap('World')
-load coastlines
-plotm(coastlat,coastlon)
-scatterm(pm{1, 12}.lat,pm{1, 12}.lon,50,pm{1, 12}.aqi,'filled')
-title('Daily AQI based on PM 2.5 in 2012')
-colorbar
-caxis ([0 100])
-
 %NOx,NOy
