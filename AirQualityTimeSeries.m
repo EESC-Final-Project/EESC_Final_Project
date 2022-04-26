@@ -1,5 +1,15 @@
-addpath ('/Users/gracegjerde/Desktop/Final Project Data/All NO2 Data/');
-addpath ('/Users/gracegjerde/Desktop/Final Project Data/All PM 2.5 Data/');
+%addpath ('/Users/gracegjerde/Desktop/Final Project Data/All NO2 Data/');
+%addpath ('/Users/gracegjerde/Desktop/Final Project Data/All PM 2.5 Data/')
+
+addpath ('/Users/murpa/Dropbox/My PC (DESKTOP-NRG87VG)/Documents/ENVS Data and Analysis/Final Project/')
+figure(1); clf
+worldmap('World')
+load coastlines
+plotm(coastlat,coastlon)
+scatterm(pm{1, 12}.lat,pm{1, 12}.lon,50,pm{1, 12}.mean,'filled')
+title('Daily Mean Value of PM 2.5 in 2012')
+colorbar
+caxis ([0 30])
 %% Loading Data
 %PM 2.5
 PM_data = readtable('daily_88101_2012.csv');
