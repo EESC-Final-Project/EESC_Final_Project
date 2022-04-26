@@ -17,7 +17,7 @@ end
 %%
 %2012 scatter of daily mean value (µ/m^3)
 figure(1); clf
-worldmap('World')
+worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon)
 scatterm(pm{1, 12}.lat,pm{1, 12}.lon,50,pm{1, 12}.mean,'filled')
@@ -28,7 +28,7 @@ caxis ([0 30])
 %us cmocean to change colors
 
 figure(2); clf
-worldmap('World')
+worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon)
 scatterm(pm{1, 12}.lat,pm{1, 12}.lon,50,pm{1, 12}.max,'filled')
@@ -37,7 +37,7 @@ colorbar
 caxis ([0 30])
 
 figure(3); clf
-worldmap('World')
+worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon)
 scatterm(pm{1, 12}.lat,pm{1, 12}.lon,50,pm{1, 12}.aqi,'filled')
