@@ -25,7 +25,7 @@ plot (time(ind),smooth_RH_F_2013,'-');
 title ('Relative Daily Humidity at Fairbanks in 2013 (%)')
 xlabel('Month')
 ylabel ('Daily Humidity')
-legend('Raw Humidity Data', '30 day moving mean')
+legend('Raw Humidity Data', '')
 datetick('x', 3 , 'keeplimits')
 
 
@@ -43,7 +43,6 @@ plot (time(ind),smooth_RH_F_2018,'-');
 title ('Relative Daily Humidity at Fairbanks in 2018 (%)')
 xlabel('Month')
 ylabel ('Daily Humidity')
-legend('Raw Humidity Data', '30 day moving mean')
 datetick('x', 3 , 'keeplimits')
 
 
@@ -64,7 +63,6 @@ plot (time(ind),smooth_RH_D_2013,'-');
 title ('Relative Daily Humidity at Durham in 2013 (%)')
 xlabel('Month')
 ylabel ('Daily Humidity')
-legend('Raw Humidity Data', '30 day moving mean')
 datetick('x', 3 , 'keeplimits')
 hold off 
 
@@ -81,6 +79,5 @@ plot (time(ind),smooth_RH_D_2018,'-');
 title ('Relative Daily Humidity at Durham in 2018 (%)')
 xlabel('Month')
 ylabel ('Daily Humidity')
-legend('Raw Humidity Data', '30 day moving mean')
 datetick('x', 3 , 'keeplimits')
 hold off 
