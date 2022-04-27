@@ -1,5 +1,5 @@
-%addpath ('/Users/gracegjerde/Desktop/Final Project Data/');
-addpath ('/Users/murpa/Dropbox/My PC (DESKTOP-NRG87VG)/Documents/ENVS Data and Analysis/Final Project/')
+addpath ('/Users/gracegjerde/Desktop/Final Project Data/');
+%addpath ('/Users/murpa/Dropbox/My PC (DESKTOP-NRG87VG)/Documents/ENVS Data and Analysis/Final Project/')
 %% Loading Data
 %NOAA Fairbanks
 Fairbanks_2013 = readtable('CRND0103-2013-AK_Fairbanks_11_NE.csv'); 
@@ -7,6 +7,7 @@ Fairbanks_2018 = readtable('CRND0103-2018-AK_Fairbanks_11_NE.csv');
 %NOAA Durham
 Durham_2013 = readtable('CRND0103-2013-NH_Durham_2_SSW.csv');
 Durham_2018 = readtable('CRND0103-2018-NH_Durham_2_SSW.csv');
+%NOAA Iowa
 %% Time Series Fairbanks
 F_2013_DailyRH = table2array(Fairbanks_2013(:,18));
 F_2018_DailyRH = table2array(Fairbanks_2018(:,18));
