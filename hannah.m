@@ -1,5 +1,7 @@
 pm25data = readtable('daily_88101_2012.csv');
 
+%% Most of this is nonsense 
+
 pmlongrid = unique(pm25data.Longitude);
 pmlatgrid = unique(pm25data.Latitude);
 pmdategrid= unique(pm25data.DateLocal);
@@ -22,20 +24,11 @@ end
 figure; clf
 imagesc(pm25(:,:,1))
 
-testarray=NaN(length(pmlat),1);
-for i=1:length(testarray)
-    testarray(i)=1;
-end
 
 figure; clf
 scatter(pm25time, pm25mean, '.')
 
-figure; clf
-worldmap([17.7125 64.8457], [-159.3662 -64.7849])
-load coastlines
-plotm(coastlat,coastlon)
-plotm(pmlat, pmlon,testarray(:,1),'markersize',15)
-colorbar;
+%% PM 2.5 Figures
 
 fairlat= 64
 fairlon= -147
@@ -53,7 +46,7 @@ figure; clf
 hold on
 plot(fairbanksdatatime, fairbanksdata2, '.')
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/meter^3')
+ylabel('PM 2.5 Concontration (µg/meter^3')
 title('Fairbanks PM 2.5 Concontration (µg/m^3)')
 
 figure; clf
@@ -74,7 +67,7 @@ figure; clf
 hold on
 plot(durhamtime, durhammean, '.')
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/m^3')
+ylabel('PM 2.5 Concontration (µg/m^3')
 title('Durham, NH PM 2.5 Concontration (µg/m^3)')
 
 figure; clf
@@ -103,25 +96,6 @@ worldmap ([17.7125 64.8457], [-159.3662 -64.7849])
 contourfm(pmlatgrid, pmlongrid, pm25(:, :, 2),'linecolor','none');
 colorbar
 geoshow('landareas.shp','FaceColor','black')
-%% NO2 Data
-
-no2data = readtable('daily_42602_2012.csv');
-
-longrid = unique(no2data.Longitude);
-latgrid = unique(no2data.Latitude);
-dategrid= unique(no2data.DateLocal);
-
-no2 = NaN(length(longrid),length(latgrid),length(dategrid));
-
-for i = 1:height(no2data)
-    lat = find(no2data.Latitude(i) == latgrid);
-    lon = find(no2data.Longitude(i) == longrid);
-    date = find(no2data.DateLocal(i) == dategrid);
-    no2(lon,lat,date) = no2data.ArithmeticMean(i);
-end
-
-figure; clf
-imagesc(no2(:,:,1))
 
 %% 2013 PM 2.5 Data
 
@@ -153,7 +127,7 @@ hold on
 plot(FB_site10_date_13, FB_site10_mean_13, '.')
 plot(FB_site10_date_13, smooth_FBsite10_mean_2013)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/meter^3')
+ylabel('PM 2.5 Concontration (µg/meter^3')
 title('Fairbanks (Site 10) PM 2.5 Concontration (µg/m^3)')
 
 figure; clf
@@ -161,7 +135,7 @@ hold on
 plot(FB_site34_date_13, FB_site34_mean_13, '.')
 plot(FB_site34_date_13, smooth_FBsite34_mean_2013)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/meter^3')
+ylabel('PM 2.5 Concontration (µg/meter^3')
 title('Fairbanks (Site 34) PM 2.5 Concontration (µg/m^3)')
 
 smooth_FBsite10_AQI_2013= movmean(FB_site10_AQI_13,7);
@@ -203,7 +177,7 @@ hold on
 plot(durhamtime_13, durhammean_13, '.')
 plot(durhamtime_13,smooth_durham_mean_2013)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/m^3')
+ylabel('PM 2.5 Concontration (µg/m^3')
 title('Durham, NH PM 2.5 Concontration (µg/m^3)')
 
 smooth_durham_AQI_2013= movmean(durhamAQI_13,7)
@@ -251,7 +225,7 @@ hold on
 plot(EVD_FB_site10_date_18, EVD_FB_site10_mean_18, '.')
 plot(EVD_FB_site10_date_18, EVD_smooth_FBsite10_mean_2018)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/m^3')
+ylabel('PM 2.5 Concontration (µg/m^3')
 title('Fairbanks (Site 10, 24 hour data collection) PM 2.5 Concontration (µg/m^3)')
 
 figure; clf
@@ -259,7 +233,7 @@ hold on
 plot(EVD_FB_site34_date_18, EVD_FB_site34_mean_18, '.')
 plot(EVD_FB_site34_date_18, EVD_smooth_FBsite34_mean_2018)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/m^3')
+ylabel('PM 2.5 Concontration (µg/m^3')
 title('Fairbanks (Site 34, 24 hour data collection) PM 2.5 Concontration (µg/m^3)')
 
 %AQI
@@ -301,7 +275,7 @@ hold on
 plot(FB_site10_date_18, FB_site10_mean_18, '.')
 plot(FB_site10_date_18, smooth_FBsite10_mean_2018)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/meter^3')
+ylabel('PM 2.5 Concontration (µg/meter^3')
 title('Fairbanks (Site 10) PM 2.5 Concontration (µg/m^3)')
 
 figure; clf
@@ -309,7 +283,7 @@ hold on
 plot(FB_site34_date_18, FB_site34_mean_18, '.')
 plot(FB_site34_date_18, smooth_FBsite34_mean_2018)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/meter^3')
+ylabel('PM 2.5 Concontration (µg/meter^3')
 title('Fairbanks (Site 34) PM 2.5 Concontration (µg/m^3)')
 
 %AQI
@@ -355,7 +329,7 @@ hold on
 plot(EVD_durhamtime_18, EVD_durhammean_18, '.')
 plot(EVD_durhamtime_18,EVD_smooth_durham_mean_2018)
 xlabel('Time (month)')
-ylabel('2.5 Concontration (µg/m^3')
+ylabel('PM 2.5 Concontration (µg/m^3')
 title('Durham, NH PM 2.5 Concontration (µg/m^3) (24 hour data collection)')
 
 %AQI
@@ -395,3 +369,59 @@ plot(durhamtime_18,smooth_durham_AQI_2018)
 xlabel('Time (month)')
 ylabel('Air Quality Index')
 title('Air Quality Index for Durham, NH')
+
+%% %% NO2 Data Figures
+
+no2data = readtable('daily_42602_2012.csv');
+
+longrid = unique(no2data.Longitude);
+latgrid = unique(no2data.Latitude);
+dategrid= unique(no2data.DateLocal);
+
+no2 = NaN(length(longrid),length(latgrid),length(dategrid));
+
+for i = 1:height(no2data)
+    lat = find(no2data.Latitude(i) == latgrid);
+    lon = find(no2data.Longitude(i) == longrid);
+    date = find(no2data.DateLocal(i) == dategrid);
+    no2(lon,lat,date) = no2data.ArithmeticMean(i);
+end
+
+figure; clf
+imagesc(no2(:,:,1))
+%% NO2 2013
+
+no2data_13 = readtable('daily_42602_2013.csv');
+
+%No AK data
+
+% Nashua, NH is the only data:
+% Mid Aug to end Sept
+
+nashuaNH_mean_13= no2data_13.ArithmeticMean(78761:78808);
+nashuaNH_date_13= no2data_13.DateLocal(78761:78808);
+nashuaNH_AQI_13= no2data_13.AQI(78761:78808);
+
+%Mean
+
+smooth_nashua_mean_13= movmean(nashuaNH_mean_13,7);
+
+figure; clf
+hold on
+plot(nashuaNH_date_13, nashuaNH_mean_13, '.')
+plot(nashuaNH_date_13,smooth_nashua_mean_13)
+xlabel('Time (month)')
+ylabel('NO2 Concontration (µg/m^3')
+title('Nashua, NH NO2 Concontration (µg/m^3)')
+
+%AQI
+
+smooth_nashua_AQI_13= movmean(nashuaNH_AQI_13,7);
+
+figure; clf
+hold on
+plot(nashuaNH_date_13, nashuaNH_AQI_13, '.')
+plot(nashuaNH_date_13,smooth_nashua_AQI_13)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Nashua, NH')
