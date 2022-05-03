@@ -4,13 +4,13 @@ addpath ('/Users/gracegjerde/Desktop/Final Project Data/All PM 2.5 Data/')
 
 
 % Loading Data PM 2.5
-PM_data = readtable('daily_88101_2018.csv');
+PM_data = readtable('daily_88101_2012.csv');
 PM_dataarraylat_lon = table2array(PM_data(:,6:7));
 PM_dataarray_mean = table2array(PM_data(:,17));
 PM_dataarray_max = table2array(PM_data(:,18));
 PM_dataarray_aqi = table2array(PM_data(:,20));
 
-for i=18
+for i=12
     filename = "daily_88101_20"+i+".csv";
     PM_data = readtable(filename);
     pm{i}.lat = PM_data.Latitude;
@@ -37,8 +37,8 @@ for j = 1:length(lat)
     locations{j}.am = PM_dataarray_mean(locations{j}.ind,:); %arithmetic mean at each station
     locations{j}.max = PM_dataarray_max(locations{j}.ind,:); %max at each station
     locations{j}.aqi = PM_dataarray_aqi(locations{j}.ind,:);
-%     locations{j}.stationmean = mean(locations{j}.am); %mean of the AM at each station
-%     locations{j}.stationmean = mean(locations{j}.am); %mean of the max at each station
+%   locations{j}.stationmean = mean(locations{j}.am); %mean of the AM at each station
+%   locations{j}.stationmean = mean(locations{j}.am); %mean of the max at each station
     locations{j}.latlon = PM_dataarraylat_lon(locations{j}.ind,:);
     for i = 1:12
         locations{j}.monthind = find (time(locations{j}.ind,2)==i); %index of each month
@@ -99,7 +99,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.june,'filled');
  hold on
 end
-title('Daily Max Value of PM 2.5 in June 2018')
+title('Daily Max Value of PM 2.5 in July 2018')
 colorbar
 ylabel (colorbar,'µg/m^3')
 cmocean ('turbid')
