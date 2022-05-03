@@ -153,6 +153,7 @@ datetick('x', 3 , 'keeplimits')
 hold off 
 
 %% sublot of PM2.5, AQI, and Relative Humidity Fairbanks 2013 (START HERE HANNAH!)
+addpath ('/Users/gracegjerde/Desktop/Final Project Data/All PM 2.5 Data/');
 
 %Fairbanks 2013
 %subplot 1 (Humidity Data)
@@ -183,14 +184,13 @@ FB_site10_AQI_13= pm25data_13.AQI(4348:4459);
 
 smooth_FBsite10_mean_2013= movmean(FB_site10_mean_13,10);
 
-figure; clf
 subplot (3,1,2)
 hold on
 plot(FB_site10_date_13, FB_site10_mean_13, '.')
 plot(FB_site10_date_13, smooth_FBsite10_mean_2013)
-xlabel('Time (month)')
-ylabel('PM 2.5 Concentrations (µg/m^3')
-title('PM 2.5 Concentrations (µg/m^3) for Fairbanks, AK (Site 10)')
+xlabel('Time (month)','FontSize',15)
+ylabel('PM 2.5 Concentrations (µg/m^3)','FontSize',15)
+title('PM 2.5 Concentrations for Fairbanks, AK','FontSize',20)
 legend("Site 10 Data Points", "1 Month Moving Mean")
 
 
@@ -205,13 +205,14 @@ hold on
 plot(FB_site10_date_13, FB_site10_AQI_13, '.')
 plot(FB_site10_date_13, smooth_FBsite10_AQI_2013)
 yline(50)
-xlabel('Time (month)')
-ylabel('Air Quality Index')
-title('Air Quality Index for Fairbanks, AK (Site 10)')
+xlabel('Time (month)','FontSize',15)
+ylabel('Air Quality Index','FontSize',15)
+title('Air Quality Index for Fairbanks, AK','FontSize',20)
 legend("Site 10 AQI", "1 Month Moving Mean")
 
 
 %% Fairbanks 2018 (PM 2.5, AQI, RH)
+
 % Fairbanks 2018
 figure (2)
 subplot (3,1,1)
@@ -222,7 +223,7 @@ RH_F_std_2018 = std(smooth_RH_F_2018);
 %scatter (time(ind),F_2018_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_F_2018,'-');
-title ('Relative Daily Humidity at Fairbanks in 2018 (%)','FontSize',20)
+title ('Relative Daily Humidity at Fairbanks in 2018','FontSize',20)
 xlabel('Month','FontSize',15)
 ylabel ('Daily Humidity (%)','FontSize',15)
 %legend('Raw Humidity Data', '30 day moving mean')
@@ -241,14 +242,14 @@ smooth_FBsite10_mean_2018= movmean(FB_site10_mean_18,5);
 
 std_FBsite10_mean_2018= movstd(FB_site10_mean_18,5);
 
-figure; clf
+
 subplot (3,1,2)
 hold on
 plot(FB_site10_date_18, FB_site10_mean_18, '.')
 plot(FB_site10_date_18, smooth_FBsite10_mean_2018)
-xlabel('Time (month)')
-ylabel('PM 2.5 Concentration (µg/m^3')
-title('PM 2.5 Concentration (µg/m^3) for Fairbanks, AK (site 10)')
+xlabel('Time (month)','FontSize',15)
+ylabel('PM 2.5 Concentration (µg/m^3)','FontSize',15)
+title('PM 2.5 Concentration for Fairbanks, AK','FontSize',20)
 legend("Site 10 Data Points", "1 Month Moving Mean")
 
 hold on
@@ -263,9 +264,9 @@ hold on
 plot(FB_site10_date_18, FB_site10_AQI_18, '.')
 plot(FB_site10_date_18, smooth_FBsite10_AQI_2018)
 yline(50)
-xlabel('Time (month)')
-ylabel('Air Quality Index')
-title('Air Quality Index for Fairbanks, AK (Site 10)')
+xlabel('Time (month)','FontSize',15)
+ylabel('Air Quality Index','FontSize',15)
+title('Air Quality Index for Fairbanks, AK','FontSize',20)
 legend("Site 10 AQI","1 Month Moving Mean")
 
 
@@ -280,7 +281,7 @@ RH_D_std_2013 = std(smooth_RH_D_2013);
 %scatter (time(ind),D_2013_DailyRH(ind))
 hold on
 plot (time(ind),smooth_RH_D_2013,'-');
-title ('Relative Daily Humidity at Durham in 2013 (%)','FontSize',20)
+title ('Relative Daily Humidity at Durham in 2013','FontSize',20)
 xlabel('Month','FontSize',15)
 ylabel ('Daily Humidity (%)','FontSize',15)
 %legend('Fairbanks','Durham','FontSize',11)
@@ -295,14 +296,14 @@ durhamAQI_13= pm25data_13.AQI(194130:194190);
 std_durham_mean_2013= movstd(durhammean_13,5)
 smooth_durham_mean_2013= movmean(durhammean_13,5)
 
-figure; clf
+
 subplot (3,1,2)
 hold on
 plot(durhamtime_13, durhammean_13, '.')
 plot(durhamtime_13,smooth_durham_mean_2013)
-xlabel('Time (month)')
-ylabel('PM 2.5 Concentration (µg/m^3')
-title('PM 2.5 Concentration (µg/m^3) for Durham, NH')
+xlabel('Time (month)','FontSize',15)
+ylabel('PM 2.5 Concentration (µg/m^3)','FontSize',15)
+title('PM 2.5 Concentration for Durham, NH','FontSize',20)
 legend("Site 14 Data Points", "1 Month Moving Mean")
 
 
@@ -316,9 +317,9 @@ hold on
 plot(durhamtime_13, durhamAQI_13, '.')
 plot(durhamtime_13,smooth_durham_AQI_2013)
 yline(50)
-xlabel('Time (month)')
-ylabel('Air Quality Index')
-title('Air Quality Index for Durham, NH')
+xlabel('Time (month)','FontSize',15)
+ylabel('Air Quality Index','FontSize',15)
+title('Air Quality Index for Durham, NH','FontSize',20)
 legend("Site 14 Data Points", "1 Month Moving Mean")
 
 
@@ -349,14 +350,14 @@ EVD_durhamAQI_18= pm25data_18.AQI(290355:290708);
 %mean
 EVD_smooth_durham_mean_2018= movmean(EVD_durhammean_18,30);
 
-figure; clf
+
 subplot (3,1,2)
 hold on
 plot(EVD_durhamtime_18, EVD_durhammean_18, '.')
 plot(EVD_durhamtime_18,EVD_smooth_durham_mean_2018)
-xlabel('Time (month)')
-ylabel('PM 2.5 Concentration (µg/m^3)')
-title('Durham, NH PM 2.5 Concentration (µg/m^3) (24 hour data collection)')
+xlabel('Time (month)','FontSize',15)
+ylabel('PM 2.5 Concentration (µg/m^3)','FontSize',15)
+title('Durham, NH PM 2.5 Concentration','FontSize',20)
 legend("Site 14 Data Point","1 Month Moving Mean")
 
 
@@ -372,7 +373,7 @@ hold on
 plot(durhamtime_18, durhamAQI_18, '.')
 plot(durhamtime_18,smooth_durham_AQI_2018)
 yline(50)
-xlabel('Time (month)')
-ylabel('Air Quality Index')
-title('Air Quality Index for Durham, NH')
+xlabel('Time (month)','FontSize',15)
+ylabel('Air Quality Index','FontSize',15)
+title('Air Quality Index for Durham, NH','FontSize',20)
 legend("Site 14 AQI","1 Month Moving Mean")
