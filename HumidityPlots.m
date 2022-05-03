@@ -175,11 +175,41 @@ datetick('x', 3 , 'keeplimits')
 hold on
 
 %subplot 2 (PM 2.5 Data)
+pm25data_13 = readtable('daily_88101_2013.csv');
+
+FB_site10_mean_13= pm25data_13.ArithmeticMean(4348:4459);
+FB_site10_date_13=pm25data_13.DateLocal(4348:4459);
+FB_site10_AQI_13= pm25data_13.AQI(4348:4459);
+
+smooth_FBsite10_mean_2013= movmean(FB_site10_mean_13,10);
+
+figure; clf
 subplot (3,1,2)
+hold on
+plot(FB_site10_date_13, FB_site10_mean_13, '.')
+plot(FB_site10_date_13, smooth_FBsite10_mean_2013)
+xlabel('Time (month)')
+ylabel('PM 2.5 Concentrations (µg/m^3')
+title('PM 2.5 Concentrations (µg/m^3) for Fairbanks, AK (Site 10)')
+legend("Site 10 Data Points", "1 Month Moving Mean")
+
 
 hold on
 %subplot 3 (AQI)
+smooth_FBsite10_AQI_2013= movmean(FB_site10_AQI_13,10);
+
+std_FBsite10_AQI_2013= movstd(FB_site10_AQI_13,10);
+
 subplot (3,1,3)
+hold on
+plot(FB_site10_date_13, FB_site10_AQI_13, '.')
+plot(FB_site10_date_13, smooth_FBsite10_AQI_2013)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Fairbanks, AK (Site 10)')
+legend("Site 10 AQI", "1 Month Moving Mean")
+
 
 %% Fairbanks 2018 (PM 2.5, AQI, RH)
 % Fairbanks 2018
@@ -200,15 +230,44 @@ datetick('x', 3 , 'keeplimits')
 
 hold on
 %subplot 2 (PM 2.5 Data)
-subplot (3,1,2)
+pm25data_18 = readtable('daily_88101_2018.csv');
 
-%INSERT PM 2.5 DATA HERE
+FB_site10_mean_18= pm25data_18.ArithmeticMean(5347:5428);
+FB_site10_date_18=pm25data_18.DateLocal(5347:5428);
+FB_site10_AQI_18= pm25data_18.AQI(5347:5428);
+
+%fairbanks mean 2018
+smooth_FBsite10_mean_2018= movmean(FB_site10_mean_18,5);
+
+std_FBsite10_mean_2018= movstd(FB_site10_mean_18,5);
+
+figure; clf
+subplot (3,1,2)
+hold on
+plot(FB_site10_date_18, FB_site10_mean_18, '.')
+plot(FB_site10_date_18, smooth_FBsite10_mean_2018)
+xlabel('Time (month)')
+ylabel('PM 2.5 Concentration (µg/m^3')
+title('PM 2.5 Concentration (µg/m^3) for Fairbanks, AK (site 10)')
+legend("Site 10 Data Points", "1 Month Moving Mean")
 
 hold on
 %subplot 3 (AQI)
-subplot (3,1,3)
+%AQI
+smooth_FBsite10_AQI_2018= movmean(FB_site10_AQI_18,5);
 
-%INSERT AQI DATA HERE
+std_FBsite10_AQI_2018= movstd(FB_site10_AQI_18,5);
+
+subplot (3,1,3)
+hold on
+plot(FB_site10_date_18, FB_site10_AQI_18, '.')
+plot(FB_site10_date_18, smooth_FBsite10_AQI_2018)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Fairbanks, AK (Site 10)')
+legend("Site 10 AQI","1 Month Moving Mean")
+
 
 %% Durham 2013 (PM 2.5, AQI, RH)
 figure (3)
@@ -229,15 +288,40 @@ datetick('x', 3 , 'keeplimits')
 
 hold on
 %subplot 2 (PM 2.5 Data)
-subplot (3,1,2)
+durhammean_13= pm25data_13.ArithmeticMean(194130:194190);
+durhamtime_13=pm25data_13.DateLocal(194130:194190);
+durhamAQI_13= pm25data_13.AQI(194130:194190);
 
-%INSERT PM 2.5 DATA HERE
+std_durham_mean_2013= movstd(durhammean_13,5)
+smooth_durham_mean_2013= movmean(durhammean_13,5)
+
+figure; clf
+subplot (3,1,2)
+hold on
+plot(durhamtime_13, durhammean_13, '.')
+plot(durhamtime_13,smooth_durham_mean_2013)
+xlabel('Time (month)')
+ylabel('PM 2.5 Concentration (µg/m^3')
+title('PM 2.5 Concentration (µg/m^3) for Durham, NH')
+legend("Site 14 Data Points", "1 Month Moving Mean")
+
 
 hold on
 %subplot 3 (AQI)
-subplot (3,1,3)
+smooth_durham_AQI_2013= movmean(durhamAQI_13,5)
+std_durham_AQI_2013= movstd(durhamAQI_13,5)
 
-%INSERT AQI DATA HERE
+subplot (3,1,3)
+hold on
+plot(durhamtime_13, durhamAQI_13, '.')
+plot(durhamtime_13,smooth_durham_AQI_2013)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Durham, NH')
+legend("Site 14 Data Points", "1 Month Moving Mean")
+
+
 
 %% Durham 2018 (PM 2.5, AQI, RH)
 figure
@@ -257,14 +341,38 @@ datetick('x', 3 , 'keeplimits')
 hold on
 
 %subplot 2 (PM 2.5 Data)
-subplot (3,1,2)
+%everyday
+EVD_durhammean_18= pm25data_18.ArithmeticMean(290355:290708);
+EVD_durhamtime_18=pm25data_18.DateLocal(290355:290708);
+EVD_durhamAQI_18= pm25data_18.AQI(290355:290708);
 
-%INSERT PM 2.5 DATA HERE
+%mean
+EVD_smooth_durham_mean_2018= movmean(EVD_durhammean_18,30);
+
+figure; clf
+subplot (3,1,2)
+hold on
+plot(EVD_durhamtime_18, EVD_durhammean_18, '.')
+plot(EVD_durhamtime_18,EVD_smooth_durham_mean_2018)
+xlabel('Time (month)')
+ylabel('PM 2.5 Concentration (µg/m^3)')
+title('Durham, NH PM 2.5 Concentration (µg/m^3) (24 hour data collection)')
+legend("Site 14 Data Point","1 Month Moving Mean")
+
 
 hold on
 %subplot 3 (AQI)
+%AQI
+durhamAQI_18= pm25data_18.AQI(290325:290354);
+durhamtime_18=pm25data_18.DateLocal(290325:290354);
+smooth_durham_AQI_2018= movmean(durhamAQI_18,3)
+
 subplot (3,1,3)
-
-%INSERT AQI DATA HERE
-
-
+hold on
+plot(durhamtime_18, durhamAQI_18, '.')
+plot(durhamtime_18,smooth_durham_AQI_2018)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Durham, NH')
+legend("Site 14 AQI","1 Month Moving Mean")
