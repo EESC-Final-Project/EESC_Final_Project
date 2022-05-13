@@ -138,4 +138,4 @@ title('Daily AQI based on PM 2.5 in 2012')
 colorbar
 caxis ([0 100])
 
-%NOx,NOy
+%NOx,NO
