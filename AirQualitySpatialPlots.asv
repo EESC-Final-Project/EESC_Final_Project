@@ -70,7 +70,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.january,'filled');
  hold on
 end
-title('Average Monthly AQI in January 2013')
+title('Daily Mean AQI in january 2013')
 colorbar
 cmocean ('amp')
 caxis ([0 50])
@@ -84,7 +84,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.july,'filled');
  hold on
 end
-title('Average Monthly AQI in July 2013')
+title('Daily Mean AQI in july 2013')
 colorbar
 cmocean ('amp')
 caxis ([0 50])
@@ -143,7 +143,7 @@ locations{i}.july = locations{1, i}.monthaqi(7,1);
 end
 
 %scatter plot for AQI January 2018
-figure(3); 
+figure; 
 worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon);
@@ -151,13 +151,13 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.january,'filled');
  hold on
 end
-title('Average Monthly AQI in January 2018')
+title('Daily Mean AQI in january 2018')
 colorbar
 cmocean ('amp')
 caxis ([0 50])
 
 %AQI July 2018 plot
-figure(4); 
+figure; 
 worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon);
@@ -165,7 +165,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.july,'filled');
  hold on
 end
-title('Average Monthly AQI in July 2018')
+title('Daily Mean AQI in july 2018')
 colorbar
 cmocean ('amp')
 caxis ([0 50])
@@ -227,7 +227,7 @@ end
 
 
 %scatter for PM2.5 2013 january
-figure(5); 
+figure; 
 worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon);
@@ -235,7 +235,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.january,'filled');
  hold on
 end
-title('Average Max Value of PM 2.5 in January 2013')
+title('Daily Max Value of PM 2.5 in January 2013')
 colorbar
 ylabel (colorbar,'µg/m^3')
 cmocean ('turbid')
@@ -243,7 +243,7 @@ caxis ([0 30])
 
 
 %scatter for PM2.5 2013 july
-figure(6); 
+figure; 
 worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon);
@@ -251,7 +251,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.july,'filled');
  hold on
 end
-title('Average Max Value of PM 2.5 in July 2013')
+title('Daily Max Value of PM 2.5 in July 2013')
 colorbar
 ylabel (colorbar,'µg/m^3')
 cmocean ('turbid')
@@ -311,7 +311,7 @@ locations{i}.july = locations{1, i}.monthmax(7,1);
 end
 
 %scatter for PM2.5 2018 january
-figure (7); 
+figure; 
 worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon);
@@ -319,14 +319,14 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.january,'filled');
  hold on
 end
-title('Average Monthly Max Value of PM 2.5 in January 2018')
+title('Daily Max Value of PM 2.5 in January 2018')
 colorbar
 ylabel (colorbar,'µg/m^3')
 cmocean ('turbid')
 caxis ([0 30])
 
 %scatter for PM2.5 2018 july
-figure (8); 
+figure; 
 worldmap([17.7125 64.8457], [-159.3662 -64.7849])
 load coastlines
 plotm(coastlat,coastlon);
@@ -334,7 +334,7 @@ for j=1:length(lat);
  scatterm(locations{j}.latlon(1,1),locations{j}.latlon(1,2),50,locations{j}.july,'filled');
  hold on
 end
-title('Average Monthly Max Value of PM 2.5 in July 2018')
+title('Daily Max Value of PM 2.5 in July 2018')
 colorbar
 ylabel (colorbar,'µg/m^3')
 cmocean ('turbid')
