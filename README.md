@@ -10,9 +10,14 @@ URL: https://www.ncei.noaa.gov/access/crn/qcdatasets.html
 (Daily Data): https://www.ncei.noaa.gov/pub/data/uscrn/products/daily01/
 
 
-
-
-
 Link to Google Drive with pre-downloaded data: https://drive.google.com/drive/u/0/folders/1yXfZedmzCuvuSf6SfXbGpZkuW2kprRyt
 
 Link to GitHub Repository: https://github.com/EESC-Final-Project/EESC_Final_Project.git
+
+
+Notes about directory
+Final_Code: contains running script
+linfit - function for linear fit
+cmocean - function for plotting
+EVD_durhammean2_18 - saved variable of filled in means (interpolation), loaded in to plot the humidity and PM2.5 correlation
+D_2018_DailyRH2 - saved variable of filled in relative humidity values (interpolation), loaded in to plot the humidity and PM2.5 correlation
