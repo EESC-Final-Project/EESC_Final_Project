@@ -194,3 +194,92 @@ plot (D_2018_DailyRH2, a+b*D_2018_DailyRH2);
 %r and p values of pm2.5 vx. relative humidity
 [R,P] = corrcoef(D_2018_DailyRH2, EVD_durhammean2_18); %stat sig from 0 w. 99% certainty, that its not random
 
+%% AQI Time Series Plots 
+
+%Fairbanks 2013
+smooth_FBsite10_AQI_2013= movmean(FB_site10_AQI_13,10);
+std_FBsite10_AQI_2013= movstd(FB_site10_AQI_13,10);
+
+figure; clf
+subplot (2,2,1)
+hold on
+plot(FB_site10_date_13, FB_site10_AQI_13, '.')
+plot(FB_site10_date_13, smooth_FBsite10_AQI_2013)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Fairbanks, AK (Site 10)')
+legend("Site 10 AQI", "1 Month Moving Mean")
+
+%Durham 2013 
+smooth_durham_AQI_2013= movmean(durhamAQI_13,5)
+std_durham_AQI_2013= movstd(durhamAQI_13,5)
+
+subplot (2,2,2)
+hold on
+plot(durhamtime_13, durhamAQI_13, '.')
+plot(durhamtime_13,smooth_durham_AQI_2013)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Durham, NH')
+legend("Site 14 Data Points", "1 Month Moving Mean")
+
+%Fairbanks 2018
+smooth_FBsite10_AQI_2018= movmean(FB_site10_AQI_18,5);
+std_FBsite10_AQI_2018= movstd(FB_site10_AQI_18,5);
+
+subplot (2,2,3)
+hold on
+plot(FB_site10_date_18, FB_site10_AQI_18, '.')
+plot(FB_site10_date_18, smooth_FBsite10_AQI_2018)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Fairbanks, AK (Site 10)')
+legend("Site 10 AQI","1 Month Moving Mean")
+
+%Durham 2018
+smooth_durham_AQI_2018= movmean(durhamAQI_18,3);
+std_durham_AQI_2018= movstd(durhamAQI_18,3);
+
+subplot (2,2,4)
+hold on
+plot(durhamtime_18, durhamAQI_18, '.')
+plot(durhamtime_18,smooth_durham_AQI_2018)
+yline(50)
+xlabel('Time (month)')
+ylabel('Air Quality Index')
+title('Air Quality Index for Durham, NH')
+legend("Site 14 AQI","1 Month Moving Mean")
+
+%% STD Plot for PM 2.5 
+
+figure; clf
+subplot(4,1,1)
+hold on
+plot(FB_site10_date_13, std_FBsite10_mean_2013)
+xlabel('Time (month)')
+ylabel('1 Month Moving STD')
+title('1 Month Moving Std for Fairbanks, AK (Site 10)')
+
+subplot(4,1,2)
+hold on
+plot(durhamtime_13, std_durham_mean_2013)
+xlabel('Time (month)')
+ylabel('1 Month Moving STD')
+title('1 Month Moving Std for Durham, NH')
+
+subplot(4,1,3)
+hold on
+plot(FB_site10_date_18, std_FBsite10_mean_2018)
+xlabel('Time (month)')
+ylabel('1 Month Moving STD')
+title('1 Month Moving Std for Fairbanks, AK (Site 10)')
+
+subplot(4,1,4)
+hold on
+plot(EVD_durhamtime_18,EVD_std_durham_mean_2018)
+xlabel('Time (month)')
+ylabel('1 Month Moving STD')
+title('1 Month Moving Std for Durham, NH')
