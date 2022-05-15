@@ -10,7 +10,6 @@ URL: https://aqs.epa.gov/aqsweb/airdata/download_files.html#Meta
 
 NOAA Humidity Data: .csv files consisting of meteorological observations at specific sensor locations and years. We chose sensor locations Fairbanks, Alaska and Durham, New Hampshire in years 2013 and 2018. 
 URL: https://www.ncei.noaa.gov/access/crn/qcdatasets.html
-
 (Daily Data): https://www.ncei.noaa.gov/pub/data/uscrn/products/daily01/
 
 
