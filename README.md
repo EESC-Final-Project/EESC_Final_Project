@@ -1,5 +1,6 @@
 # EESC_Final_Project
 An Investigation of Air Quality Trends in the United States
+(Grace Gjerde, Hannah McGowan, Kathleen Murphy, Alec Lawlor)
 
 Data Used
 EPA PM2.5 Concentrations Data: daily observations from 2012-2021 at an array of coordinate locations across the United States. 
